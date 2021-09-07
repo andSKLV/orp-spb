@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
+  background: grey;
+}
+
+.App__main-container {
+  outline: 1px solid red;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.App__main-content {
+  outline: 1px solid green;
+  width: 70%;
+}
