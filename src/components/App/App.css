@@ -3,6 +3,7 @@
   position: relative;
   min-height: 100vh;
   background: grey;
+  padding-top: 190px;
 }
 
 .App__main-container {
@@ -15,4 +16,14 @@
 .App__main-content {
   outline: 1px solid green;
   width: 70%;
+  overflow-x: hidden;
+}
+
+.test-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.test-table td {
+  border: 1px solid #dddddd;
 }

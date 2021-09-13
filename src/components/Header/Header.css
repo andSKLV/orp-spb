@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: white;
+  z-index: 6;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  box-sizing: border-box;
+}
+
+.header__logo-container {
+  cursor: pointer;
+  padding-left: 5%;
+  margin-right: 10%;
+}
+
+.header__logo-title {
+  white-space: pre-line;
+  font-size: 12px;
+  margin: 0;
+}
+
+.header__logo {
+  width: 150px;
+  margin-right: 10%;
+}
+
+.header__contacts {
+  text-align: start;
+}
+
+.header__phones {
+  margin-bottom: 10px;
+}
+
+.header__addresses {
+  padding-left: 30px;
+}
+
+.header__item {
+  display: inline;
+  min-width: 30%;
+  margin: 0;
+  margin-right: 15px;
+}
+
+.header__item:nth-child(3)  {
+  margin-right: 0;
+}
+
+.header__addresses .header__item:nth-child(2) {
+  margin-right: 0;
+}

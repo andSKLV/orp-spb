@@ -3,7 +3,7 @@
   width: 30%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding-left: 5%;
 }
 
 .menu-nav__item {

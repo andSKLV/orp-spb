@@ -1,6 +1,7 @@
 export const firebaseConfig = {
   apiKey: "AIzaSyBsUVA_TVyxvYHz85E1xjZ5hbSA6_viWts",
   authDomain: "orp-spb.firebaseapp.com",
+  databaseURL: "https://orp-spb-default-rtdb.firebaseio.com",
   projectId: "orp-spb",
   storageBucket: "orp-spb.appspot.com",
   messagingSenderId: "885583874946",

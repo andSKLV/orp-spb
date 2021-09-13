@@ -1,29 +1,94 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from '../../utils/firebaseConfig';
 import "firebase/analytics";
-import "firebase/auth";
-import "firebase/firestore";
+import Header from '../Header/Header';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import { getDatabase, ref, set, /*onValue,*/ child, get } from "firebase/database"; // все для чтения записи (onValue для вебсокета)
+
 import { Link, Route, Switch } from 'react-router-dom';
 import './App.css';
 import MenuNav from '../MenuNav/MenuNav';
+import Test from '../Carousel/Carousel';
+
+
+
+initializeApp(firebaseConfig);
 
 function App() {
+  const [bannerTables, setBannerTables] = useState({});
   useEffect(() => {
-    initializeApp(firebaseConfig);
-  }, [])
+    //testAddDataToFireBase();
+    getTestTableData();
+  }, []);
+
+  function testAddDataToFireBase() {
+    const banners1 = {
+      tr1: {
+        td1: '360 точек',
+        td2: '350'
+      },
+      tr2: {
+        td1: '720 точек',
+        td2: '450'
+      },
+      tr3: {
+        td1: '1440 точек',
+        td2: '550'
+      }
+    }
+    const db = getDatabase();
+    set(ref(db, 'banners/banners1'), banners1);
+  }
+
+  function getTestTableData() {
+    const dbRef = ref(getDatabase());
+      get(child(dbRef, 'banners')).then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val());
+          setBannerTables(snapshot.val());
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+  }
+
   return (
     <div className="App">
-      <header><Link to="/"><span>header</span></Link></header>
+      <Header/>
       <div className="App__main-container">
         <MenuNav/>
         <div className="App__main-content">
           <Switch>
             <Route exact path="/">
-              <div className="">ОСП СПБ</div>
+              <Test/>
             </Route>
             <Route exact path="/banners">
-              <div className="">Баннера</div>
+              {bannerTables.banners1 && <table className="test-table">
+                  <tbody>
+                    <tr>
+                      <td>Материал</td>
+                      <td>Разрешение печати</td>
+                      <td>Стоимость за м2.</td>
+                    </tr>
+                    <tr>
+                      <td rowSpan="3"><p>Баннер ламинированный Frontlit 440 гр.</p></td>
+                      <td>{bannerTables.banners1.tr1.td1}</td>
+                      <td>{bannerTables.banners1.tr1.td2}</td>
+                    </tr>
+                    <tr>
+                      <td>{bannerTables.banners1.tr2.td1}</td>
+                      <td>{bannerTables.banners1.tr2.td2}</td>
+                    </tr>
+                    <tr>
+                      <td>{bannerTables.banners1.tr3.td1}</td>
+                      <td>{bannerTables.banners1.tr3.td2}</td>
+                    </tr>
+                  </tbody>
+                </table>}
             </Route>
             <Route exact path="/notebooks">
               <div className="">Блокноты</div>
