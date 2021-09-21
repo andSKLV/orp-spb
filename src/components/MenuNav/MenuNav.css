@@ -1,9 +1,16 @@
 .menu-nav {
   outline: 1px solid pink;
-  width: 30%;
+  width: 320px;
   display: flex;
   flex-direction: column;
-  padding-left: 5%;
+  padding-left: 2%;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: red;
+  z-index: 5;
+  transition: all ease 1s;
 }
 
 .menu-nav__item {
@@ -13,8 +20,8 @@
   border: none;
   outline: none;
   color: white;
-  font-size: 20px;
-  line-height: 26px;
+  font-size: 16px;
+  line-height: 16px;
   text-shadow: 0 0 8px black;
   z-index: 2;
   display: flex;
@@ -38,4 +45,31 @@
   opacity: 1;
   height: 100%;
   width: calc(100% + 20px);
+}
+
+.menu-nav__close-btn {
+  display: none;
+  background: red;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .menu-nav__close-btn {
+    display: block;
+  }
+  .menu-nav {
+    background: green;
+    transform: translateX(-100%);
+  }
+  .menu-nav_opened {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .menu-nav__item {
+    font-size: 14px;
+  }
 }

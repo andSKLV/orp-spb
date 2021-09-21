@@ -7,15 +7,23 @@
   top: 0;
   background: white;
   z-index: 6;
-  padding-top: 30px;
-  padding-bottom: 30px;
   box-sizing: border-box;
 }
 
 .header__logo-container {
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
   padding-left: 5%;
   margin-right: 10%;
+  box-sizing: border-box;
+}
+
+.header__burger-menu {
+  display: none;
+  width: 30px;
+  height: 30px;
+  background: red;
 }
 
 .header__logo-title {
@@ -43,6 +51,8 @@
 
 .header__item {
   display: inline;
+  text-decoration: none;
+  color: black;
   min-width: 30%;
   margin: 0;
   margin-right: 15px;
@@ -54,4 +64,31 @@
 
 .header__addresses .header__item:nth-child(2) {
   margin-right: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .header {
+    flex-direction: column-reverse;
+  }
+
+  .header__logo-container {
+    margin: 0;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 1%;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  .header__burger-menu {
+    display: block;
+  }
+
+  .header__item_mobile-hidden {
+    display: none;
+  }
+
+  .header__logo-title {
+    display: none;
+  }
 }

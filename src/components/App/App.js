@@ -18,6 +18,7 @@ initializeApp(firebaseConfig);
 
 function App() {
   const [bannerTables, setBannerTables] = useState({});
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
   useEffect(() => {
     //testAddDataToFireBase();
     getTestTableData();
@@ -58,9 +59,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
+      <Header handleBurgerClick={setIsMenuOpened}/>
       <div className="App__main-container">
-        <MenuNav/>
+        <MenuNav handleCloseBtnClick={setIsMenuOpened} isOpened={isMenuOpened}/>
         <div className="App__main-content">
           <Switch>
             <Route exact path="/">

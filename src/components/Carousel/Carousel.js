@@ -20,7 +20,7 @@ export default function Carousel() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplaySpeed: 4000,
-    autoplay: false,
+    autoplay: true,
     arrows: true,
     nextArrow: <SliderArrow />,
     prevArrow: <SliderArrow />
