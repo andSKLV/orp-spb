@@ -13,7 +13,6 @@
 .header__logo-container {
   display: flex;
   flex-direction: column;
-  cursor: pointer;
   padding-left: 5%;
   margin-right: 10%;
   box-sizing: border-box;
@@ -23,7 +22,17 @@
   display: none;
   width: 30px;
   height: 30px;
-  background: red;
+  background-image: url('../../images/header__burger-img.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  opacity: .5;
+}
+
+.header__burger-menu_hidden {
+  display: none;
 }
 
 .header__logo-title {
@@ -35,6 +44,7 @@
 .header__logo {
   width: 150px;
   margin-right: 10%;
+  cursor: pointer;
 }
 
 .header__contacts {
@@ -89,6 +99,10 @@
   }
 
   .header__logo-title {
+    display: none;
+  }
+
+  .header__burger-menu_hidden {
     display: none;
   }
 }

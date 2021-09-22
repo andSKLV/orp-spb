@@ -2,20 +2,17 @@
   text-align: center;
   position: relative;
   min-height: 100vh;
-  background: grey;
   padding-top: 130px;
 }
 
 .App__main-container {
   position: relative;
-  outline: 1px solid red;
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
 
 .App__main-content {
-  outline: 1px solid green;
   width: calc(100% - 320px);
   overflow-x: hidden;
 }

@@ -10,7 +10,8 @@ import { getDatabase, ref, set, /*onValue,*/ child, get } from "firebase/databas
 import { Link, Route, Switch } from 'react-router-dom';
 import './App.css';
 import MenuNav from '../MenuNav/MenuNav';
-import Test from '../Carousel/Carousel';
+import Carousel from '../Carousel/Carousel';
+import HelloPage from '../HelloPage/HelloPage';
 
 
 
@@ -47,7 +48,7 @@ function App() {
     const dbRef = ref(getDatabase());
       get(child(dbRef, 'banners')).then((snapshot) => {
         if (snapshot.exists()) {
-          console.log(snapshot.val());
+          //console.log(snapshot.val());
           setBannerTables(snapshot.val());
         } else {
           console.log("No data available");
@@ -59,13 +60,13 @@ function App() {
 
   return (
     <div className="App">
-      <Header handleBurgerClick={setIsMenuOpened}/>
+      <Header handleBurgerClick={setIsMenuOpened} isMenuOpened={isMenuOpened}/>
       <div className="App__main-container">
         <MenuNav handleCloseBtnClick={setIsMenuOpened} isOpened={isMenuOpened}/>
         <div className="App__main-content">
           <Switch>
             <Route exact path="/">
-              <Test/>
+              <HelloPage/>
             </Route>
             <Route exact path="/banners">
               {bannerTables.banners1 && <table className="test-table">
@@ -127,6 +128,9 @@ function App() {
             <Route exact path="/mugs-with-a-logo">
               <div className="">Кружки с логотипом</div>
             </Route>
+            <Route exact path="/envelopes">
+              <div className="">Конверты</div>
+            </Route>
             <Route exact path="/lamination">
               <div className="">Ламинация</div>
             </Route>
@@ -185,7 +189,10 @@ function App() {
               <div className="">Флеш-карты с логотипом</div>
             </Route>
             <Route exact path="/t-shirts-with-a-logo">
-              <div className="">Футболки с логотипом</div>
+              <div className=""></div>
+            </Route>
+            <Route exact path="/order">
+              <script src="https://yastatic.net/s3/frontend/forms/_/embed.js"></script><iframe src="https://forms.yandex.ru/b2b/6149beb04fce32d76d30c190/?iframe=1" frameborder="0" name="ya-form-6149beb04fce32d76d30c190" width="100%"></iframe>
             </Route>
           </Switch>
         </div>

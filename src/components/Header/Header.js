@@ -1,8 +1,9 @@
 import './Header.css';
 import headerLogo from '../../images/header__logo.png';
 import { useHistory } from 'react-router-dom';
+import classNames from 'classnames';
 
-function MenuNav({handleBurgerClick}) {
+function Header({handleBurgerClick, isMenuOpened}) {
   const history = useHistory();
   function goHome() {
     history.push('/');
@@ -12,6 +13,10 @@ function MenuNav({handleBurgerClick}) {
     handleBurgerClick(true);
   }
 
+  const burgerMenuSelectors = classNames('header__burger-menu', {
+    'header__burger-menu_hidden': isMenuOpened
+  });
+
   return (
     <div className="header">
       <div className="header__logo-container">
@@ -20,7 +25,7 @@ function MenuNav({handleBurgerClick}) {
           рекламной полиграфии`}
         </p>
         <img className="header__logo" src={headerLogo} alt="ОРП принт" onClick={goHome}/>
-        <button type="button" className="header__burger-menu" onClick={openMenu}/>
+        <button type="button" className={burgerMenuSelectors} onClick={openMenu}/>
       </div>
       <div className="header__contacts">
         <div className="header__phones">
@@ -37,4 +42,4 @@ function MenuNav({handleBurgerClick}) {
   )
 }
 
-export default MenuNav;
+export default Header;

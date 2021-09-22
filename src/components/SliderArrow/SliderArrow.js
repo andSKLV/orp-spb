@@ -1,7 +1,6 @@
 import './SliderArrow.css';
 
 export default function SliderArrow(props) {
-  console.log(props);
   const { className, style, onClick } = props;
   return (
     <div

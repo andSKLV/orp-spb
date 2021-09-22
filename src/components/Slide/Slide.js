@@ -8,7 +8,7 @@ export default function Slide({img, link, title, subtitle}) {
       <img className="slide__img" src={img} alt={title}/>
       <h3 className="slide__title">{title}</h3>
       <h4 className="slide__subtitle">{subtitle}</h4>
-      <Link className="slide__link" to={link}>Go!</Link>
+      <Link className="slide__link" to={link}>Go! <div className="slide__arrow-right"/></Link>
     </div>
   )
 }

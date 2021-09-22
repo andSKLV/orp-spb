@@ -14,7 +14,7 @@ function MenuNav({handleCloseBtnClick, isOpened}) {
   }
   return (
     <div className={menuNavSelectors}>
-      <button type="button" className="menu-nav__close-btn" onClick={closeMenu}>close</button>
+      <button type="button" className="menu-nav__close-btn" onClick={closeMenu}/>
       {MenuNavItems.map((el, index) => 
         <NavLink to={el.link} className="menu-nav__item" activeClassName="menu-nav__item_active" key={index}>
           {el.text}
