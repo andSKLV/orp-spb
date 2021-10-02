@@ -1,0 +1,39 @@
+.footer {
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 35px;
+  background: white;
+  z-index: 5;
+}
+
+.footer__section-list {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(4 ,1fr);
+  margin: 0;
+  padding: 0;
+}
+
+.footer__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0;
+}
+
+.footer__title {
+  margin: 0;
+}
+
+.footer__item {
+  white-space: pre-line;
+  margin: 0;
+}
+
+.footer__requirements {
+  margin: 0;
+}

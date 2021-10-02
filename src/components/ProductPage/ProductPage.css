@@ -1,0 +1,29 @@
+.product-page {
+  white-space: pre-line;
+  text-align: start;
+}
+
+.product-page__table {
+  border-collapse: collapse;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.product-page__cell {
+  border: solid 1px grey;
+  border-collapse: collapse;
+}
+
+.product-page__image {
+  float: left;
+  width: 70%;
+}
+
+@media screen and (max-width: 550px) {
+  .product-page__image {
+    width: 80%;
+    float: none;
+    margin: 0 auto;
+  }
+}

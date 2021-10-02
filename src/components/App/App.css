@@ -3,6 +3,7 @@
   position: relative;
   min-height: 100vh;
   padding-top: 130px;
+  padding-bottom: 200px;
 }
 
 .App__main-container {

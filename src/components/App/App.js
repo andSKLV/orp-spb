@@ -5,58 +5,23 @@ import "firebase/analytics";
 import Header from '../Header/Header';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import { getDatabase, ref, set, /*onValue,*/ child, get } from "firebase/database"; // все для чтения записи (onValue для вебсокета)
-
 import { Link, Route, Switch } from 'react-router-dom';
 import './App.css';
 import MenuNav from '../MenuNav/MenuNav';
-import Carousel from '../Carousel/Carousel';
 import HelloPage from '../HelloPage/HelloPage';
+import ProductPage from '../ProductPage/ProductPage';
+import Banners from '../Products/Banners';
+import Footer from '../Footer/Footer';
 
 
 
 initializeApp(firebaseConfig);
 
 function App() {
-  const [bannerTables, setBannerTables] = useState({});
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   useEffect(() => {
-    //testAddDataToFireBase();
-    getTestTableData();
   }, []);
 
-  function testAddDataToFireBase() {
-    const banners1 = {
-      tr1: {
-        td1: '360 точек',
-        td2: '350'
-      },
-      tr2: {
-        td1: '720 точек',
-        td2: '450'
-      },
-      tr3: {
-        td1: '1440 точек',
-        td2: '550'
-      }
-    }
-    const db = getDatabase();
-    set(ref(db, 'banners/banners1'), banners1);
-  }
-
-  function getTestTableData() {
-    const dbRef = ref(getDatabase());
-      get(child(dbRef, 'banners')).then((snapshot) => {
-        if (snapshot.exists()) {
-          //console.log(snapshot.val());
-          setBannerTables(snapshot.val());
-        } else {
-          console.log("No data available");
-        }
-      }).catch((error) => {
-        console.error(error);
-      });
-  }
 
   return (
     <div className="App">
@@ -69,28 +34,7 @@ function App() {
               <HelloPage/>
             </Route>
             <Route exact path="/banners">
-              {bannerTables.banners1 && <table className="test-table">
-                  <tbody>
-                    <tr>
-                      <td>Материал</td>
-                      <td>Разрешение печати</td>
-                      <td>Стоимость за м2.</td>
-                    </tr>
-                    <tr>
-                      <td rowSpan="3"><p>Баннер ламинированный Frontlit 440 гр.</p></td>
-                      <td>{bannerTables.banners1.tr1.td1}</td>
-                      <td>{bannerTables.banners1.tr1.td2}</td>
-                    </tr>
-                    <tr>
-                      <td>{bannerTables.banners1.tr2.td1}</td>
-                      <td>{bannerTables.banners1.tr2.td2}</td>
-                    </tr>
-                    <tr>
-                      <td>{bannerTables.banners1.tr3.td1}</td>
-                      <td>{bannerTables.banners1.tr3.td2}</td>
-                    </tr>
-                  </tbody>
-                </table>}
+              <ProductPage product={<Banners/>}/>
             </Route>
             <Route exact path="/notebooks">
               <div className="">Блокноты</div>
@@ -197,7 +141,7 @@ function App() {
           </Switch>
         </div>
       </div>
-      <footer>footer</footer>
+      <Footer/>
     </div>
   );
 }
