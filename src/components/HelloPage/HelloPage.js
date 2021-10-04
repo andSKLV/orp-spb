@@ -8,8 +8,9 @@ function HelloPage() {
 
   return (
     <div className="hello-page">
-      <Carousel/>
-      <Portfolio/>
+      <div className="hello-page__carousel-container">
+        <Carousel/>
+      </div>
     </div>
   )
 }

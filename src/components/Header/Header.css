@@ -61,11 +61,50 @@
 
 .header__item {
   display: inline;
+  position: relative;
   text-decoration: none;
   color: black;
   min-width: 30%;
   margin: 0;
   margin-right: 15px;
+  padding: 5px 0 5px 32px;
+}
+
+.header__item::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 12px);
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: opacity .8s ease;
+}
+
+.header__item:hover.header__item::before {
+  opacity: .5;
+}
+
+.header__item_type_phone::before {
+  background-image: url('../../images/contacts-icons/phone-icon.png');
+}
+
+.header__item_type_whatsapp::before {
+  background-image: url('../../images/contacts-icons/whatsapp-icon.png');
+}
+
+.header__item_type_telegramm::before {
+  background-image: url('../../images/contacts-icons/telegram-icon.png');
+}
+
+.header__item_type_mail::before {
+  background-image: url('../../images/contacts-icons/mail-icon.png');
+}
+
+.header__item_type_home::before {
+  background-image: url('../../images/contacts-icons/home-icon.png');
 }
 
 .header__item:nth-child(3)  {

@@ -27,13 +27,17 @@
 
 .footer__title {
   margin: 0;
+  text-decoration: underline;
 }
 
 .footer__item {
   white-space: pre-line;
   margin: 0;
+  text-decoration: none;
+  color: black;
 }
 
 .footer__requirements {
   margin: 0;
+  text-decoration: underline;
 }

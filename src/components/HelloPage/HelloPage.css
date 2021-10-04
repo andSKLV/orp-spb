@@ -1,3 +1,14 @@
 .hello-page {
   width: 100%;
 }
+
+.hello-page__carousel-container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1280px) {
+  .hello-page__carousel-container {
+    max-width: 60%;
+  }
+}

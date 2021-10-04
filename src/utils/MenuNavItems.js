@@ -52,6 +52,10 @@ export const MenuNavItems = [
     text: 'Кружки с логотипом'
   },
   {
+    link: '/envelopes',
+    text: 'Конверты'
+  },
+  {
     link: '/lamination',
     text: 'Ламинация'
   },

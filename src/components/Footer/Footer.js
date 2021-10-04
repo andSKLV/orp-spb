@@ -9,7 +9,7 @@ function Footer() {
             Контакты:
           </h5>
           <a className="footer__item" href="tel:+7-812-716-90-21">(812) 716 90 21</a>
-          <a className="footer__item" href="https://wa.me/79112109663" target="_blank" rel="noreferrer">whatsapp</a>
+          <a className="footer__item" href="https://wa.me/79112109663" target="_blank" rel="noreferrer">(911)2109663</a>
           <a className="footer__item" href="tel:+7-921-583-67-45">(921) 583 67 45</a>
           <a className="footer__item" href="mailto:info@orp@spb.ru" target="_blank" rel="noreferrer">info@orp@spb.ru</a>
         </li>
